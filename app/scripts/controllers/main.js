@@ -9,7 +9,7 @@ angular.module('nigelWebApp')
     ];
 
     $scope.chat = "bti build info";
-    $scope.output = "";
+    $scope.output = [];
 
     var parser = function (message) {
             var temp = message.toLowerCase(),
@@ -25,14 +25,14 @@ angular.module('nigelWebApp')
             if (temp[1]) {
                     temp = temp[1].split('and');
                     temp.forEach(function (param, index) {
-                            results += index ? '&' : '?';
-                            var temp = param.split('as');
-                            if (temp[0]) {
-                                    results += temp[0].trim();
-                            }
-                            if (temp[1]) {
-                                    results += '=' + temp[1].trim();
-                            }
+                        results += index ? '&' : '?';
+                        var temp = param.split('as');
+                        if (temp[0]) {
+                                results += temp[0].trim();
+                        }
+                        if (temp[1]) {
+                                results += '=' + temp[1].trim();
+                        }
                     });
             }
             return results;
@@ -46,7 +46,7 @@ angular.module('nigelWebApp')
             },
             method: "GET"
         }).then(function (res) {
-            $scope.output += "\n" + JSON.stringify(res.data).replace(new RegExp("\\\\n", 'g'), "\n").replace(new RegExp("\"", 'g'), "");
+            $scope.output.push(JSON.stringify(res.data).replace(new RegExp("\\\\n", 'g'), "\n").replace(new RegExp("\"", 'g'), ""));
         });
     };
   }]);

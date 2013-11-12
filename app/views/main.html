@@ -6,7 +6,8 @@
 	</ul>
 	<h3 class="text-muted">nigel web chat</h3>
 </div>
-
-<pre style="height: 400px; overflow-y: auto; overflow-x: auto;">{{output}}</pre>
+<div style="height: 400px; overflow-y: auto; overflow-x: auto;">
+	<pre ng-repeat="out in output">{{out}}</pre>
+</div>
 <input class="form-control" style="float: left; width: 80%;"type="text" ng-model="chat">
 <button ng-click="post()" class="pull-right btn btn-primary">Send</button>
