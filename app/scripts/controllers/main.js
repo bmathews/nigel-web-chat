@@ -35,7 +35,7 @@ angular.module('nigelWebApp')
                         }
                     });
             }
-            return results;
+            return results || "";
     };
 
     $scope.post = function () {
