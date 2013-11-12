@@ -39,6 +39,7 @@ angular.module('nigelWebApp')
     };
 
     $scope.post = function () {
+        $scope.output.push({"user": true, "message": $scope.chat});
         $http.jsonp('http://localhost:3000/' + parser($scope.chat), {
             params: {
                 "callback": "JSON_CALLBACK",
@@ -46,7 +47,7 @@ angular.module('nigelWebApp')
             },
             method: "GET"
         }).then(function (res) {
-            $scope.output.push(JSON.stringify(res.data).replace(new RegExp("\\\\n", 'g'), "\n").replace(new RegExp("\"", 'g'), ""));
+            $scope.output.push({"user": false, "message": JSON.stringify(res.data).replace(new RegExp("\\\\n", 'g'), "\n").replace(new RegExp("\"", 'g'), "")});
         });
     };
   }]);
