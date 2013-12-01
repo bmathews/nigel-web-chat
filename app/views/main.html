@@ -6,8 +6,8 @@
 	</ul>
 	<h3 class="text-muted">nigel web chat</h3>
 </div>
-<div style="height: 400px; overflow-y: auto; overflow-x: auto;">
-	<pre ng-repeat="out in output" style="{{out.user && 'background: #fff;' || ''}}">{{out.message}}</pre>
+<div id="output" style="margin-bottom: 10px; padding: 10px; padding-bottom: 0px; border-radius: 4px; border: 1px solid #eee; height: 600px; overflow-y: auto; overflow-x: auto;">
+	<pre ng-repeat="out in output" style="{{out.user && 'background: #5cb85c; color: #fff; border: 1px solid #4cae4c;' || ''}}">{{out.message}}</pre>
 </div>
-<input class="form-control" style="float: left; width: 80%;"type="text" ng-model="chat">
-<button ng-click="post()" class="pull-right btn btn-primary">Send</button>
+<input class="form-control" style="float: left; width: 85%;"type="text" ng-model="chat">
+<button ng-click="post()" style="width: 13%; margin-left: 2%;" class="pull-right btn btn-primary">Send</button>
